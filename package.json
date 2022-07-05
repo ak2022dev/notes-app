@@ -17,5 +17,8 @@
   "bugs": {
     "url": "https://github.com/ak2022dev/notes-app/issues"
   },
-  "homepage": "https://github.com/ak2022dev/notes-app#readme"
+  "homepage": "https://github.com/ak2022dev/notes-app#readme",
+  "dependencies": {
+    "jest": "^28.1.2"
+  }
 }
