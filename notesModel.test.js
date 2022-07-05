@@ -17,6 +17,13 @@ describe('NotesModel', () => {
     mode.addNote('Go to the gym');
     expect(mode.getNotes()).toEqual([ 'Buy milk', 'Go to the gym' ]);
   });
+  it( 'can be reset', () => {
+    const mode = new NotesModel();
+    mode.addNote('Buy milk');
+    mode.addNote('Go to the gym');
+    mode.reset();
+    expect(mode.getNotes()).toEqual([]);
+  });
   
 });
 
