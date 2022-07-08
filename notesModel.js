@@ -11,6 +11,7 @@ class NotesModel {
   };
   
   addNote( note ) {
+    // note is a string
     this.notes.push( note );
   };
 

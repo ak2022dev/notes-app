@@ -19,6 +19,7 @@
   },
   "homepage": "https://github.com/ak2022dev/notes-app#readme",
   "dependencies": {
-    "jest": "^28.1.2"
+    "jest": "^28.1.2",
+    "jest-environment-jsdom": "^28.1.2"
   }
 }
