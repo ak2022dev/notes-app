@@ -16,7 +16,7 @@ describe('Page view', () => {
     // The notesView starts with one empty div in it
     expect(document.querySelectorAll('div').length).toBe(1);
   })
-  it ('It adds one to count of divs every time a note is added', () => {
+  it ('Adds one to count of divs every time a note is added using the model', () => {
     document.body.innerHTML = fs.readFileSync('./index.html');
 
     const model = new NotesModel();
@@ -27,5 +27,32 @@ describe('Page view', () => {
     // The notesView starts with one empty div in it
     expect(document.querySelectorAll('div').length).toBe(3);
   })
+  it ('Adds one to count of divs when a note is added using button clicks', () => {
+    document.body.innerHTML = fs.readFileSync('./index.html');
+
+    const model = new NotesModel();
+    const view = new NotesView(model);
+    const buttonEl = document.querySelector('#add-input-button');
+    // The notesView starts with one empty div in it
+    expect(document.querySelectorAll('div').length).toBe(1);
+    buttonEl.click();
+    // After button clicked there is an additional div
+    expect(document.querySelectorAll('div').length).toBe(2);
+//    view.displayNotes();
+  })
+  it( 'Clears previously displayed notes before displaying all notes including new ones',
+    () => {
+    const model = new NotesModel();
+    const view = new NotesView(model);
+    const buttonEl = document.querySelector('#add-input-button');
+    // The notesView starts with one empty div in it
+    // After button clicked there is an additional div
+    buttonEl.click();
+    expect(document.querySelectorAll('div').length).toBe(2);
+    // After second button click there it removes earlier notes
+    // then lists so that they're not listed repeatedly
+    buttonEl.click();
+    expect(document.querySelectorAll('div').length).toBe(3);    
+  } )
 
 });
